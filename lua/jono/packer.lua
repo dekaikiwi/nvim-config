@@ -38,8 +38,8 @@ return require('packer').startup(function(use)
             {'L3MON4D3/LuaSnip'},     -- Required
         }
     }
-    use('github/copilot.vim')
     use('tpope/vim-commentary')
+    use('zbirenbaum/copilot.lua')
 
     -- Style
     use({ 'rose-pine/neovim', as = 'rose-pine' })
