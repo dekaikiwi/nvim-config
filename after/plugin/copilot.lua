@@ -6,7 +6,7 @@ require("copilot").setup({
         auto_trigger = true,
         keymap = {
             -- Bring in line with LSP Suggestion Accept.
-            accept = "<M-y>",
+            accept = "<Tab>",
         }
     },
 })

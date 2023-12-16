@@ -31,11 +31,10 @@ return require('packer').startup(function(use)
                 end,
             },
             { 'williamboman/mason-lspconfig.nvim' }, -- Optional
-
             -- Autocompletion
-            { 'hrsh7th/nvim-cmp' },     -- Required
-            { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-            { 'L3MON4D3/LuaSnip' },     -- Required
+            { 'hrsh7th/nvim-cmp' },                  -- Required
+            { 'hrsh7th/cmp-nvim-lsp' },              -- Required
+            { 'L3MON4D3/LuaSnip' },                  -- Required
         }
     }
     use('tpope/vim-commentary')
@@ -62,5 +61,6 @@ return require('packer').startup(function(use)
 
     -- Style
     use('folke/tokyonight.nvim')
+    use('ervandew/supertab')
     vim.cmd('colorscheme tokyonight')
 end)

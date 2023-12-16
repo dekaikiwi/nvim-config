@@ -1,4 +1,6 @@
 local lsp = require('lsp-zero')
+local cmp = require('cmp')
+local cmp_action = lsp.cmp_action()
 
 lsp.preset('recommended')
 lsp.setup()
@@ -31,3 +33,9 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 require 'lspconfig'.cssls.setup {
     capabilities = capabilities,
 }
+
+cmp.setup({
+    mapping = cmp.mapping.preset.insert({
+        ['<Tab>'] = cmp.mapping.confirm({ select = false }),
+    })
+});
