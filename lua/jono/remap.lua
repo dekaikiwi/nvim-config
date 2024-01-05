@@ -1,5 +1,18 @@
+local wk = require('which-key')
+
+-- Set Leader Key
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+
+wk.register({
+    s = {
+        name = "Show",
+        d = { "<cmd>lua vim.diagnostic.open_float({scope='line'})<CR>", "Show Diagnostics for Current Line." },
+    },
+    p = {
+        v = { "<cmd>Ex<cr>", "Open File Explorer" },
+    }
+}, { prefix = "<leader>" })
+
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")

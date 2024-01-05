@@ -4,6 +4,8 @@ local cmp_action = lsp.cmp_action()
 
 lsp.preset('recommended')
 lsp.setup()
+lsp.nvim_workspace()
+
 
 lsp.ensure_installed({
     'tsserver',
