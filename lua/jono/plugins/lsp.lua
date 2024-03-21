@@ -2,7 +2,7 @@ return {
     {
          "williamboman/mason.nvim",
         dependencies = {
-            "williamboman/nvim-lspconfig",
+            "williamboman/mason-lspconfig",
             "neovim/nvim-lspconfig",
         },
         config = function()
@@ -13,6 +13,7 @@ return {
                     'eslint',
                     'lua_ls',
                     'clangd',
+                    'marksman',
                 },
             })
             require('mason-lspconfig').setup_handlers({
