@@ -1,6 +1,7 @@
 return {
     {
         'nvim-telescope/telescope.nvim',
+        lazy = false,
         dependencies = { 'nvim-lua/plenary.nvim' },
         keys = {
             {
@@ -10,7 +11,7 @@ return {
             },
             {
                 "<leader>pg",
-                "<cmd>lua require('telescope.builtin').git_files()<CR>",
+                "<cmd>lua require('telescope.builtin').git_status()<CR>",
                 "Telescope - Git Files"
             },
             {
@@ -28,6 +29,11 @@ return {
                 "<cmd>lua require('telescope.builtin').help_tags()<CR>",
                 "Telescope - Help Tags"
             },
+            {
+                "<leader>pr",
+                "<cmd>lua require('telescope.builtin').lsp_references()<CR>",
+                "Telescope - LSP References"
+            }
         },
     }
 }

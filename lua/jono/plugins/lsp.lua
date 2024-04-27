@@ -84,8 +84,8 @@ return {
                 "<cmd>lua vim.diagnostic.setloclist{}<CR>",
                 desc = "Diagnostic - Next"
             },
+            { "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", "LSP - Go to Implementation" },
         }
-
 
     },
 }
