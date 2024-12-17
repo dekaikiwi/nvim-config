@@ -1,9 +1,46 @@
 return {
     {
+        "williamboman/mason-lspconfig",
+        dependencies = {
+            "hrsh7th/cmp-nvim-lsp"
+        },
+        config = function()
+            local lspconfig = require("lspconfig")
+            local capabilities = require("cmp_nvim_lsp").capabilities
+
+            lspconfig.lua_ls.setup({
+                capabilities = capabilities,
+                settings = {
+                    Lua = {
+                        diagnostics = {
+                            globals = { "vim" },
+                        },
+                    },
+                },
+            })
+            lspconfig.eslint.setup({
+                capabilities = capabilities,
+            })
+            lspconfig.tsserver.setup({
+                capabilities = capabilities,
+            })
+            lspconfig.clangd.setup({
+                capabilities = capabilities,
+            })
+            lspconfig.marksman.setup({
+                capabilities = capabilities,
+            })
+            lspconfig.gopls.setup({
+                capabilities = capabilities,
+            })
+        end
+    },
+    {
          "williamboman/mason.nvim",
         dependencies = {
             "williamboman/mason-lspconfig",
             "neovim/nvim-lspconfig",
+            "hrsh7th/nvim-cmp",
         },
         lazy = false,
         config = function()
@@ -18,20 +55,6 @@ return {
                     'gopls',
                 },
             })
-            require("lspconfig").lua_ls.setup({
-                settings = {
-                    Lua = {
-                        diagnostics = {
-                            globals = { "vim" },
-                        },
-                    },
-                },
-            })
-            require("lspconfig").eslint.setup({})
-            require("lspconfig").tsserver.setup({})
-            require("lspconfig").clangd.setup({})
-            require("lspconfig").marksman.setup({})
-            require("lspconfig").gopls.setup({})
             -- Use LspAttach autocommand to only map the following keys
             -- after the language server attaches to the current buffer
             vim.api.nvim_create_autocmd('LspAttach', {
@@ -86,6 +109,5 @@ return {
             },
             { "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", "LSP - Go to Implementation" },
         }
-
     },
 }
