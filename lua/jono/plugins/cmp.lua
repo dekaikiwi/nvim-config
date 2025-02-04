@@ -35,7 +35,47 @@ return {
             })
         end
 
-    }
+    },
+    {
+      "olimorris/codecompanion.nvim",
+      dependencies = {
+        "nvim-lua/plenary.nvim",
+        "nvim-treesitter/nvim-treesitter",
+      },
+      config = function()
+        local codecompanion = require "codecompanion";
+        local codecompanion_adapters = require "codecompanion.adapters";
+
+        codecompanion.setup({
+            adapters = {
+                ollama = function()
+                    return codecompanion_adapters.extend("ollama", {
+                        schema = {
+                            model = {
+                                default = "deepseek-r1:1.5b"
+                            },
+                        },
+                        env = {
+                            url = "https://ollama.internal.dekai.kiwi",
+                        },
+                        parameters = {
+                            sync = true
+                        }
+                    })
+                end,
+            },
+            strategies = {
+                chat = {
+                    adapter = "ollama"
+                },
+                inline = {
+                    adapter = "ollama"
+                },
+            },
+        })
+
+      end
+    },
     -- {
     --     "zbirenbaum/copilot.lua",
     --     config = function()
