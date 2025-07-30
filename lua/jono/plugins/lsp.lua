@@ -21,7 +21,7 @@ return {
             lspconfig.eslint.setup({
                 capabilities = capabilities,
             })
-            lspconfig.tsserver.setup({
+            lspconfig.ts_ls.setup({
                 capabilities = capabilities,
             })
             lspconfig.clangd.setup({
@@ -47,7 +47,7 @@ return {
             require("mason").setup()
             require("mason-lspconfig").setup({
                 ensure_installed = {
-                    "tsserver",
+                    "ts_ls",
                     'eslint',
                     'lua_ls',
                     'clangd',

@@ -1,4 +1,23 @@
 return {
+    { 'vuciv/golf' },
+    { 
+        "rcarriga/nvim-notify",
+        event = "VimEnter",
+          config = function()
+            require("notify").setup({})
+            -- This line is ESSENTIAL. It replaces the default notifier.
+            vim.notify = require("notify")
+          end,
+    },
+    {
+       "m4xshen/hardtime.nvim",
+       lazy = false,
+       dependencies = { 
+            "MunifTanjim/nui.nvim",
+            "rcarriga/nvim-notify"
+        },
+        opts = {}
+    },
     {
         -- TODO: Add a keybinding to comment on ? in visual mode.
         "tpope/vim-commentary",
@@ -54,10 +73,20 @@ return {
     },
     { 
         "folke/which-key.nvim",
-        config = function()
-            vim.o.timeout = true
-            vim.o.timeoutlen = 300
-            require("which-key").setup {}
-        end,
+        dependencies = { 
+            "echasnovski/mini.nvim",
+            "nvim-tree/nvim-web-devicons"
+        },
+        event = "VeryLazy",
+        opts = {},
+    	keys = {
+            { "<leader>sd", "<cmd>lua vim.diagnostic.open_float({scope='line'})<CR>" },
+            { "<leader>pv", "<cmd>Ex<cr>" },
+    	}
+       -- config = function()
+        --     vim.o.timeout = true
+        --     vim.o.timeoutlen = 300
+        --     require("which-key").setup {}
+        -- end,
     }
 }
